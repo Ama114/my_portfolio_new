@@ -59,7 +59,7 @@ export default function Projects() {
       title: "National Cricket Player Analysis System",
       description:
         "Final year project developing a comprehensive system to analyze cricket player performance using data science techniques. Implementing statistical analysis and machine learning models for player evaluation.",
-      image: "/cricket-analytics-dashboard.png",
+      image: "images/cricket_player_analyzing.png",
       technologies: ["Frontend : react", "Backend : Flask", "ML model :RandomForest Regressor"],
       github: "https://github.com/Ama114",
       status: "In Progress",
@@ -77,7 +77,7 @@ export default function Projects() {
       title: "Personalized Diet & Exercise Planner",
       description:
         "AI-powered application that analyzes meal images to provide personalized diet and exercise recommendations. Utilizing computer vision and machine learning for nutritional analysis.",
-      image: "/diet-planner-app.png",
+      image: "images/personalize_diet_plan.png",
       technologies: ["Python", "Deep Learning", "Computer Vision", "React", "MongoDB"],
       github: "https://github.com/Ama114",
       status: "In Progress",
@@ -86,7 +86,7 @@ export default function Projects() {
       title: "Sentiment Analysis Mini Project",
       description:
         "Natural language processing project analyzing sentiment in text data. Implementing various ML algorithms to classify emotions and opinions from social media and review data.",
-      image: "/sentiment-analysis-visualization.png",
+      image: "images/Sentiment_analysis.png",
       technologies: ["Python", "NLP", "Machine Learning", "Pandas", "Matplotlib"],
       github: "https://github.com/Ama114",
       status: "Completed",
@@ -130,7 +130,7 @@ export default function Projects() {
                   transitionDelay: `${index * 150}ms`,
                 }}
               >
-                <div className="relative overflow-hidden aspect-video group-hover:scale-105 transition-transform duration-700">
+                <div className="relative overflow-hidden h-60 md:h-72 rounded-xl group-hover:scale-105 transition-transform duration-700">
                   <img
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}

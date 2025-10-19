@@ -93,9 +93,9 @@ export default function About() {
                     <Image
                       src="/images/profile.jpg"
                       alt="Vishwa Darshana"
-                      width={400}
-                      height={400}
-                      className="rounded-2xl shadow-2xl object-cover w-full max-w-sm aspect-square transition-transform duration-500 group-hover:scale-[1.02]"
+                      width={500}
+                      height={500}
+                      className="rounded-2xl shadow-2xl object-cover w-full max-w-md aspect-square transition-transform duration-500 group-hover:scale-[1.02]"
                       priority
                     />
                   </div>

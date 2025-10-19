@@ -44,7 +44,7 @@ export default function Navigation() {
               <a
                 key={item.name}
                 href={item.href}
-                className="relative group px-3 py-2 rounded-md text-sm font-medium text-muted-foreground transition-colors hover:text-accent overflow-hidden before:content-[''] before:absolute before:inset-0 before:rounded-md before:bg-accent/10 before:scale-x-0 before:origin-left before:transition-transform before:duration-300 group-hover:before:scale-x-100"
+                className="relative group px-3 py-2 rounded-md text-base font-medium text-muted-foreground transition-colors hover:text-accent overflow-hidden before:content-[''] before:absolute before:inset-0 before:rounded-md before:bg-accent/10 before:scale-x-0 before:origin-left before:transition-transform before:duration-300 group-hover:before:scale-x-100"
               >
                 {item.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full" />
@@ -70,7 +70,7 @@ export default function Navigation() {
               <a
                 key={item.name}
                 href={item.href}
-                className="relative group py-2 px-3 rounded-md text-base font-medium text-muted-foreground transition-colors hover:text-accent overflow-hidden before:content-[''] before:absolute before:inset-0 before:rounded-md before:bg-accent/10 before:scale-x-0 before:origin-left before:transition-transform before:duration-300 group-hover:before:scale-x-100"
+                className="relative group py-2 px-3 rounded-md text-lg font-medium text-muted-foreground transition-colors hover:text-accent overflow-hidden before:content-[''] before:absolute before:inset-0 before:rounded-md before:bg-accent/10 before:scale-x-0 before:origin-left before:transition-transform before:duration-300 group-hover:before:scale-x-100"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}
