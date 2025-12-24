@@ -73,11 +73,12 @@ export default function Contact() {
           }`}
         >
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              <span className="text-accent font-mono text-lg md:text-xl">05.</span> Get In Touch
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+              <span className="text-foreground font-mono text-xl md:text-2xl">05.</span>{" "}
+              <span className="text-foreground">Get In Touch</span>
             </h2>
-            <div className="w-20 h-1 bg-accent mx-auto mb-6" />
-            <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+            <div className="w-20 h-1 mx-auto mb-8 bg-foreground" />
+            <p className="text-muted-foreground text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto leading-relaxed">
               I'm currently seeking opportunities to contribute to innovative projects and further develop my technical
               expertise. Whether you have a question or want to discuss potential collaborations, feel free to reach
               out!
@@ -86,7 +87,7 @@ export default function Contact() {
 
           <div className="grid lg:grid-cols-2 gap-12">
             <div className="space-y-6">
-              <h3 className="text-2xl font-bold mb-6 text-foreground">Contact Information</h3>
+              <h3 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">Contact Information</h3>
 
               {contactInfo.map((info, index) => (
                 <Card
@@ -97,12 +98,12 @@ export default function Contact() {
                   }}
                 >
                   <a href={info.href} className="flex items-center gap-4 group">
-                    <div className="p-3 bg-accent/10 rounded-lg group-hover:bg-accent/20 transition-colors">
-                      <info.icon className="h-6 w-6 text-accent-foreground" />
+                    <div className="p-3 bg-foreground/10 rounded-lg group-hover:bg-foreground/20 transition-colors">
+                      <info.icon className="h-7 w-7 text-foreground" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground mb-1">{info.title}</p>
-                      <p className="font-semibold text-card-foreground group-hover:text-accent transition-colors text-sm md:text-base">
+                      <p className="text-base md:text-lg text-muted-foreground mb-1">{info.title}</p>
+                      <p className="font-semibold text-card-foreground group-hover:text-foreground transition-colors text-base md:text-lg lg:text-xl">
                         {info.value}
                       </p>
                     </div>
@@ -111,7 +112,7 @@ export default function Contact() {
               ))}
 
               <div className="pt-4">
-                <h4 className="text-lg font-bold mb-4 text-foreground">Connect With Me</h4>
+                <h4 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">Connect With Me</h4>
                 <div className="space-y-4">
                   {socialLinks.map((social, index) => (
                     <Card
@@ -124,12 +125,12 @@ export default function Contact() {
                         rel="noopener noreferrer"
                         className="flex items-center gap-4 group"
                       >
-                        <div className="p-3 bg-accent/10 rounded-lg group-hover:bg-accent/20 transition-colors">
-                          <social.icon className="h-6 w-6 text-accent-foreground" />
+                        <div className="p-3 bg-foreground/10 rounded-lg group-hover:bg-foreground/20 transition-colors">
+                          <social.icon className="h-7 w-7 text-foreground" />
                         </div>
                         <div>
-                          <p className="text-sm text-muted-foreground mb-1">{social.title}</p>
-                          <p className="font-semibold text-card-foreground group-hover:text-accent transition-colors text-sm">
+                          <p className="text-base md:text-lg text-muted-foreground mb-1">{social.title}</p>
+                          <p className="font-semibold text-card-foreground group-hover:text-foreground transition-colors text-base md:text-lg">
                             {social.value}
                           </p>
                         </div>
@@ -141,36 +142,36 @@ export default function Contact() {
             </div>
 
             <Card className="p-8 bg-card border-border">
-              <h3 className="text-2xl font-bold mb-6 text-card-foreground">Send a Message</h3>
+              <h3 className="text-3xl md:text-4xl font-bold mb-6 text-card-foreground">Send a Message</h3>
               <form className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2 text-card-foreground">
+                  <label htmlFor="name" className="block text-base md:text-lg font-medium mb-2 text-card-foreground">
                     Name
                   </label>
-                  <Input id="name" placeholder="Your name" className="bg-background border-border" />
+                  <Input id="name" placeholder="Your name" className="bg-background border-border text-base md:text-lg h-12" />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2 text-card-foreground">
+                  <label htmlFor="email" className="block text-base md:text-lg font-medium mb-2 text-card-foreground">
                     Email
                   </label>
                   <Input
                     id="email"
                     type="email"
                     placeholder="your.email@example.com"
-                    className="bg-background border-border"
+                    className="bg-background border-border text-base md:text-lg h-12"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium mb-2 text-card-foreground">
+                  <label htmlFor="message" className="block text-base md:text-lg font-medium mb-2 text-card-foreground">
                     Message
                   </label>
                   <Textarea
                     id="message"
                     placeholder="Your message..."
                     rows={6}
-                    className="bg-background border-border resize-none"
+                    className="bg-background border-border resize-none text-base md:text-lg"
                   />
                 </div>
 

@@ -56,10 +56,11 @@ export default function Experience() {
           }`}
         >
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              <span className="text-accent font-mono text-lg md:text-xl">02.</span> Education & Experience
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+              <span className="text-foreground font-mono text-xl md:text-2xl">02.</span>{" "}
+              <span className="text-foreground">Education & Experience</span>
             </h2>
-            <div className="w-20 h-1 bg-accent mx-auto" />
+            <div className="w-20 h-1 mx-auto bg-foreground" />
           </div>
 
           <div className="relative">
@@ -76,28 +77,28 @@ export default function Experience() {
                   }}
                 >
                   {/* Timeline Dot */}
-                  <div className="absolute left-0 md:left-1/2 top-8 w-4 h-4 bg-accent rounded-full border-4 border-background -translate-x-1.5 md:-translate-x-2 hidden sm:block" />
+                  <div className="absolute left-0 md:left-1/2 top-8 w-4 h-4 rounded-full border-4 border-background -translate-x-1.5 md:-translate-x-2 hidden sm:block bg-foreground" />
 
-                  <Card className="p-6 hover:shadow-lg hover:shadow-accent/10 transition-all duration-300 bg-card border-border ml-8 sm:ml-12 md:ml-0">
+                  <Card className="p-6 hover:shadow-lg hover:shadow-accent/10 transition-all duration-300 bg-card border-border ml-8 sm:ml-12 md:ml-0 group">
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="p-3 bg-accent/10 rounded-lg">
-                        <exp.icon className="h-6 w-6 text-accent" />
+                      <div className="p-3 bg-foreground/10 rounded-lg">
+                        <exp.icon className="h-8 w-8 text-foreground" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-xl font-bold text-card-foreground mb-1">{exp.title}</h3>
-                        <p className="text-accent font-semibold mb-2">{exp.company}</p>
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <Calendar className="h-4 w-4" />
+                        <h3 className="text-2xl md:text-3xl font-bold text-card-foreground mb-2 group-hover:text-foreground transition-all duration-300">{exp.title}</h3>
+                        <p className="text-foreground font-semibold mb-2 text-lg md:text-xl">{exp.company}</p>
+                        <div className="flex items-center gap-2 text-base md:text-lg text-muted-foreground">
+                          <Calendar className="h-5 w-5" />
                           {exp.period}
                         </div>
                       </div>
                     </div>
 
-                    <p className="text-muted-foreground mb-4 leading-relaxed">{exp.description}</p>
+                    <p className="text-lg md:text-xl text-muted-foreground mb-4 leading-relaxed">{exp.description}</p>
 
                     <div className="flex flex-wrap gap-2">
                       {exp.technologies.map((tech) => (
-                        <Badge key={tech} variant="secondary" className="bg-accent/10 text-accent hover:bg-accent/20">
+                        <Badge key={tech} variant="secondary" className="bg-foreground/10 text-foreground hover:bg-foreground/20 text-base">
                           {tech}
                         </Badge>
                       ))}

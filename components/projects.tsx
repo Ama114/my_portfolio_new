@@ -68,7 +68,7 @@ export default function Projects() {
       title: "Sri Lankan Cricket Squad Selector",
       description:
         "Data-driven squad selection system using CrickInfo data. Analyzing player statistics, form, and performance metrics to recommend optimal team compositions for different match conditions.",
-      image: "/cricket-squad-selector.png",
+      image: "images/Cricket Squad Selector.png",
       technologies: ["Python", "Data Mining", "SQL", "Power BI", "Web Scraping"],
       github: "https://github.com/Ama114",
       status: "In Progress",
@@ -111,10 +111,11 @@ export default function Projects() {
           }`}
         >
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              <span className="text-accent font-mono text-lg md:text-xl">03.</span> Academic Projects
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+              <span className="text-foreground font-mono text-xl md:text-2xl">03.</span>{" "}
+              <span className="text-foreground">Academic Projects</span>
             </h2>
-            <div className="w-20 h-1 bg-accent mx-auto" />
+            <div className="w-20 h-1 mx-auto bg-foreground" />
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -130,13 +131,14 @@ export default function Projects() {
                   transitionDelay: `${index * 150}ms`,
                 }}
               >
-                <div className="relative overflow-hidden h-60 md:h-72 rounded-xl group-hover:scale-105 transition-transform duration-700">
+                <div className="relative overflow-hidden h-60 md:h-72 rounded-xl group-hover:scale-105 transition-transform duration-700 border-2 border-foreground/20">
                   <img
                     src={project.image || "/placeholder.svg"}
                     alt={project.title}
                     className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-1"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-foreground opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
                   <div className="absolute top-4 right-4 transform group-hover:scale-110 transition-transform duration-300">
                     <Badge className={project.status === "Completed" ? "bg-green-500/90" : "bg-yellow-500/90"}>
                       {project.status}
@@ -145,10 +147,10 @@ export default function Projects() {
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-card-foreground group-hover:text-accent transition-all duration-300 group-hover:translate-x-1">
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 text-card-foreground group-hover:text-foreground transition-all duration-300 group-hover:translate-x-1">
                     {project.title}
                   </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed text-sm md:text-base transition-all duration-300 group-hover:text-foreground">
+                  <p className="text-muted-foreground mb-4 leading-relaxed text-base md:text-lg lg:text-xl transition-all duration-300 group-hover:text-foreground">
                     {project.description}
                   </p>
 
@@ -157,7 +159,7 @@ export default function Projects() {
                       <Badge
                         key={tech}
                         variant="secondary"
-                        className="bg-accent/10 text-accent text-xs transition-all duration-300 hover:bg-accent hover:text-accent-foreground hover:scale-110"
+                        className="bg-foreground/10 text-foreground text-sm md:text-base transition-all duration-300 hover:bg-foreground hover:text-background hover:scale-110"
                         style={{
                           transitionDelay: `${techIndex * 50}ms`,
                         }}

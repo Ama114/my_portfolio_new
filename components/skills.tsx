@@ -96,10 +96,11 @@ export default function Skills() {
           }`}
         >
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              <span className="text-accent font-mono text-lg md:text-xl">04.</span> Skills & Technologies
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+              <span className="text-foreground font-mono text-xl md:text-2xl">04.</span>{" "}
+              <span className="text-foreground">Skills & Technologies</span>
             </h2>
-            <div className="w-20 h-1 bg-accent mx-auto" />
+            <div className="w-20 h-1 mx-auto bg-foreground" />
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -115,7 +116,7 @@ export default function Skills() {
                   transitionDelay: `${index * 100}ms`,
                 }}
               >
-                <h3 className="text-xl font-bold mb-4 text-accent transition-all duration-300 group-hover:scale-105 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-accent group-hover:to-primary group-hover:bg-clip-text">
+                <h3 className="text-xl md:text-2xl font-bold mb-4 text-foreground transition-all duration-300 group-hover:scale-105">
                   {category.title}
                 </h3>
                 <div className="flex flex-wrap gap-2">
@@ -123,7 +124,7 @@ export default function Skills() {
                     <Badge
                       key={skill}
                       variant="secondary"
-                      className="bg-muted hover:bg-accent/20 hover:text-accent transition-all duration-300 text-xs hover:scale-110 hover:-rotate-2"
+                      className="bg-muted hover:bg-foreground/20 hover:text-foreground transition-all duration-300 text-sm md:text-base hover:scale-110 hover:-rotate-2"
                       style={{
                         transitionDelay: `${skillIndex * 50}ms`,
                       }}
@@ -137,7 +138,7 @@ export default function Skills() {
           </div>
 
           <div className="mt-16 text-center">
-            <p className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto leading-relaxed animate-fade-in-up">
+            <p className="text-muted-foreground text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto leading-relaxed animate-fade-in-up">
               Continuously learning and expanding my skill set in data science and web development. Eager to apply these
               skills to real-world challenges and innovative projects.
             </p>

@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
 
+// Variation 3: Creative Portfolio - Home, Portfolio, Connect
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -17,16 +18,16 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Template: Navigation items - customize these 3 items as needed
+  // Variation 3: Creative Portfolio
   const navItems = [
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "#home" },
+    { name: "Portfolio", href: "#portfolio" },
+    { name: "Connect", href: "#connect" },
   ]
 
   return (
     <nav
-      className={`fixed top-0 w-full bg-background/70 backdrop-blur-lg shadow-md z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-background/60 backdrop-blur-md border-b border-border"
           : "bg-background/20 backdrop-blur-md border-b border-transparent"
@@ -34,7 +35,7 @@ export default function Navigation() {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <a href="/" className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground hover:opacity-80 transition-opacity tracking-[0.3em] uppercase font-inter">
+          <a href="/" className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground hover:opacity-80 transition-opacity">
             AVD
           </a>
 
@@ -92,3 +93,4 @@ export default function Navigation() {
     </nav>
   )
 }
+

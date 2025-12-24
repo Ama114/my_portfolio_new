@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
+
 export default function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [textRevealed, setTextRevealed] = useState(false)
@@ -20,63 +21,28 @@ export default function Hero() {
   }, [])
 
   const name = "Vishwa Darshana"
-  const nameChars = name.split("")
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-muted">
-        <div
-          className="absolute inset-0 opacity-30 transition-all duration-300"
-          style={{
-            background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(100, 200, 255, 0.15), transparent 50%)`,
-          }}
-        />
-      </div>
-
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-accent/10 rounded-full blur-3xl animate-float" />
-        <div
-          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float"
-          style={{ animationDelay: "2s" }}
-        />
-        <div
-          className="absolute top-1/2 left-1/2 w-48 h-48 bg-accent/5 rounded-full blur-2xl animate-float"
-          style={{ animationDelay: "1s" }}
-        />
-        <div
-          className="absolute top-3/4 left-1/3 w-32 h-32 bg-primary/5 rounded-full blur-xl animate-float"
-          style={{ animationDelay: "3s" }}
-        />
+        <div className="absolute inset-0 bg-foreground/5" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <div className="animate-fade-in-up">
-            <p className="text-accent font-mono text-sm md:text-base mb-4 animate-slide-in-left">{"Hi, my name is"}</p>
+            <p className="text-foreground font-mono text-lg md:text-xl mb-6 animate-slide-in-left">{"Hi, my name is"}</p>
 
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-4 text-balance">
-              <span className="inline-block">
-                {nameChars.map((char, index) => (
-                  <span
-                    key={index}
-                    className="inline-block bg-gradient-to-r from-foreground via-accent to-primary bg-clip-text text-transparent animate-char-reveal"
-                    style={{
-                      animationDelay: `${index * 0.05}s`,
-                      opacity: textRevealed ? 1 : 0,
-                    }}
-                  >
-                    {char === " " ? "\u00A0" : char}
-                  </span>
-                ))}
-              </span>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-extrabold mb-6 text-foregroundtext-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold mb-6 text-foreground whitespace-nowrap">
+              {name}
             </h1>
 
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-muted-foreground mb-6 text-balance animate-scale-in">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-muted-foreground mb-6 text-balance animate-scale-in">
               Data Science Student & Web Developer
             </h2>
 
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed text-pretty animate-fade-in-up-delay">
+            <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed text-pretty animate-fade-in-up-delay">
               Final-year Data Science undergraduate at SLTC Research University with expertise in Python, machine
               learning, and web development. Passionate about turning data into actionable insights and building
               innovative solutions.

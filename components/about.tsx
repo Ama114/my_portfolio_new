@@ -58,27 +58,28 @@ export default function About() {
           }`}
         >
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              <span className="text-accent font-mono text-lg md:text-xl">01.</span> About Me
+            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+              <span className="text-foreground font-mono text-xl md:text-2xl">01.</span>{" "}
+              <span className="text-foreground">About Me</span>
             </h2>
-            <div className="w-20 h-1 bg-accent mx-auto" />
+            <div className="w-20 h-1 mx-auto bg-foreground" />
           </div>
 
           <div className="max-w-6xl mx-auto mb-16">
             <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
               {/* Text content on the left */}
-              <div className="space-y-4">
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+              <div className="space-y-6">
+                <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed">
                   I'm an enthusiastic and detail-oriented final-year Data Science undergraduate at SLTC Research
                   University with a strong foundation in data analysis, programming, and machine learning. My journey in
                   tech combines the analytical power of data science with the creativity of web development.
                 </p>
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed">
                   Skilled in Python for data manipulation and visualization, I have hands-on experience building web
                   applications with modern frameworks like React. I'm proficient in tools like Microsoft Excel, Power
                   BI, and various databases including MongoDB and MySQL.
                 </p>
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+                <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground leading-relaxed">
                   I'm eager to apply my academic knowledge to real-world challenges in data-driven environments and
                   contribute to innovative projects. As a volunteer at the University LEO Club, I believe in giving back
                   to the community while continuously developing my technical expertise.
@@ -88,7 +89,7 @@ export default function About() {
               {/* Profile image on the right */}
               <div className="flex justify-center md:justify-end">
                 <div className="relative group perspective-1000">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-accent to-primary rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-500" />
+                  <div className="absolute -inset-1 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-500 bg-foreground" />
                   <div className="relative transition-3d animate-float">
                     <Image
                       src="/images/profile.jpg"
@@ -113,9 +114,9 @@ export default function About() {
                   animationDelay: `${index * 100}ms`,
                 }}
               >
-                <feature.icon className="h-10 w-10 text-accent mb-4" />
-                <h3 className="text-lg font-semibold mb-2 text-card-foreground">{feature.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
+                <feature.icon className="h-12 w-12 text-foreground mb-4" />
+                <h3 className="text-xl md:text-2xl font-semibold mb-3 text-card-foreground">{feature.title}</h3>
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">{feature.description}</p>
               </Card>
             ))}
           </div>
