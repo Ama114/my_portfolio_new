@@ -415,3 +415,17 @@
 .animate-snow {
   animation: snow linear infinite;
 }
+
+
+ @keyframes floatIcon {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.animate-icon {
+  animation: floatIcon 3.5s ease-in-out infinite;
+}
