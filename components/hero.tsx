@@ -34,11 +34,11 @@ export default function Hero() {
           <div className="animate-fade-in-up">
             <p className="text-foreground font-mono text-lg md:text-xl mb-6 animate-slide-in-left">{"Hi, my name is"}</p>
 
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-extrabold mb-6 text-foregroundtext-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold mb-6 text-foreground whitespace-nowrap">
-              {name}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold mb-6 text-foreground whitespace-nowrap">       
+            {name}
             </h1>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-muted-foreground mb-6 text-balance animate-scale-in">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-muted-foreground mb-6 text-balance animate-scale-in">
               Data Science Student & Web Developer
             </h2>
 
