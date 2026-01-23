@@ -1,7 +1,10 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-import { Mail, MapPin, Phone, Send, Github, Linkedin } from "lucide-react"
+import { useEffect, useRef, useState, FormEvent } from "react"
+ 
+import emailjs from "@emailjs/browser" 
+
+import { Mail, MapPin, Phone, Send, Github, Linkedin, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -9,7 +12,10 @@ import { Textarea } from "@/components/ui/textarea"
 
 export default function Contact() {
   const [isVisible, setIsVisible] = useState(false)
+  const [isSending, setIsSending] = useState(false)  
+  
   const sectionRef = useRef<HTMLElement>(null)
+  const formRef = useRef<HTMLFormElement>(null)  
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -27,6 +33,35 @@ export default function Contact() {
 
     return () => observer.disconnect()
   }, [])
+
+  // Email send  function 
+  const sendEmail = (e: FormEvent) => {
+    e.preventDefault()
+    setIsSending(true)
+
+    if (formRef.current) {
+      emailjs
+        .sendForm(
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,  
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,  
+          formRef.current,
+          process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!  
+        )
+        .then(
+          (result) => {
+            console.log(result.text)
+            alert("Message sent successfully!") 
+            setIsSending(false)
+            if (formRef.current) formRef.current.reset() // Form clear
+          },
+          (error) => {
+            console.log(error.text)
+            alert("Failed to send message. Please try again.")
+            setIsSending(false)
+          }
+        )
+    }
+  }
 
   const contactInfo = [
     {
@@ -72,6 +107,7 @@ export default function Contact() {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
         >
+          {/* Header Section (No changes here) */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
               <span className="text-foreground font-mono text-xl md:text-2xl">05.</span>{" "}
@@ -86,9 +122,9 @@ export default function Contact() {
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12">
+            {/* Left Column: Contact Info & Socials (No changes here) */}
             <div className="space-y-6">
               <h3 className="text-3xl md:text-4xl font-bold mb-6 text-foreground">Contact Information</h3>
-
               {contactInfo.map((info, index) => (
                 <Card
                   key={info.title}
@@ -114,7 +150,7 @@ export default function Contact() {
               <div className="pt-4">
                 <h4 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">Connect With Me</h4>
                 <div className="space-y-4">
-                  {socialLinks.map((social, index) => (
+                  {socialLinks.map((social) => (
                     <Card
                       key={social.title}
                       className="p-6 hover:shadow-lg hover:shadow-accent/10 transition-all duration-300 bg-card border-border"
@@ -141,24 +177,36 @@ export default function Contact() {
               </div>
             </div>
 
+            {/* Right Column: Contact Form */}
             <Card className="p-8 bg-card border-border">
               <h3 className="text-3xl md:text-4xl font-bold mb-6 text-card-foreground">Send a Message</h3>
-              <form className="space-y-6">
+              
+          
+              <form ref={formRef} onSubmit={sendEmail} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-base md:text-lg font-medium mb-2 text-card-foreground">
                     Name
                   </label>
-                  <Input id="name" placeholder="Your name" className="bg-background border-border text-base md:text-lg h-12" />
+                
+                  <Input 
+                    id="name" 
+                    name="user_name" 
+                    placeholder="Your name" 
+                    required 
+                    className="bg-background border-border text-base md:text-lg h-12" 
+                  />
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-base md:text-lg font-medium mb-2 text-card-foreground">
                     Email
                   </label>
-                  <Input
+                   <Input
                     id="email"
                     type="email"
+                    name="user_email"
                     placeholder="your.email@example.com"
+                    required
                     className="bg-background border-border text-base md:text-lg h-12"
                   />
                 </div>
@@ -167,17 +215,28 @@ export default function Contact() {
                   <label htmlFor="message" className="block text-base md:text-lg font-medium mb-2 text-card-foreground">
                     Message
                   </label>
-                  <Textarea
+
+                   <Textarea
                     id="message"
+                    name="message"
                     placeholder="Your message..."
+                    required
                     rows={6}
                     className="bg-background border-border resize-none text-base md:text-lg"
                   />
                 </div>
 
-                <Button type="submit" className="w-full group">
-                  Send Message
-                  <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                <Button type="submit" className="w-full group" disabled={isSending}>
+                  {isSending ? (
+                    <>
+                      Sending... <Loader2 className="ml-2 h-4 w-4 animate-spin" />
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                    </>
+                  )}
                 </Button>
               </form>
             </Card>
