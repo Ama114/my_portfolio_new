@@ -56,7 +56,7 @@ export default function Experience() {
           }`}
         >
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+            <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-6">
               <span className="text-foreground font-mono text-xl md:text-2xl">02.</span>{" "}
               <span className="text-foreground">Education & Experience</span>
             </h2>
