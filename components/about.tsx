@@ -58,7 +58,7 @@ export default function About() {
           }`}
         >
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
               <span className="text-foreground font-mono text-xl md:text-2xl">01.</span>{" "}
               <span className="text-foreground">About Me</span>
             </h2>
