@@ -18,7 +18,7 @@ const config = {
       },
     },
     extend: {
-      // --- මෙතන තමයි අපි Colors සහ Animations හදන්නේ ---
+      // --- Colors ---
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -59,12 +59,17 @@ const config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      // --- මෙන්න අපේ අලුත් Meteor Animation එක ---
+      
+      // --- Animations ---
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "meteor-effect": "meteor 5s linear infinite", // <--- මේක තමයි ඕනේ
+        "meteor-effect": "meteor 5s linear infinite",
+        // 👇 අලුතෙන් එකතු කළ Scroll Animation එක
+        "scroll": "scroll 20s linear infinite",
       },
+      
+      // --- Keyframes ---
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -74,7 +79,7 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        // Meteors Keyframes
+        // Meteor Keyframes
         meteor: {
           "0%": { transform: "rotate(215deg) translateX(0)", opacity: "1" },
           "70%": { opacity: "1" },
@@ -82,6 +87,11 @@ const config = {
             transform: "rotate(215deg) translateX(-500px)",
             opacity: "0",
           },
+        },
+        // 👇 අලුතෙන් එකතු කළ Scroll Keyframes
+        scroll: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
         },
       },
     },

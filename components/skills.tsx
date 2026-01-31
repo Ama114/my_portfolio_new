@@ -1,98 +1,57 @@
 "use client"
 
-import { useEffect, useRef, useState } from "react"
-import { Card } from "@/components/ui/card"
+import Marquee from "react-fast-marquee";
 
-const skillIconMap: Record<string, string> = {
-  HTML: "devicon-html5-plain colored",
-  CSS: "devicon-css3-plain colored",
-  JavaScript: "devicon-javascript-plain colored",
-  React: "devicon-react-original colored",
-  Python: "devicon-python-plain colored",
-  SQL: "devicon-mysql-plain colored",
-  MongoDB: "devicon-mongodb-plain colored",
-  MySQL: "devicon-mysql-plain colored",
-  Git: "devicon-git-plain colored",
-  GitHub: "devicon-github-original",
-  Docker: "devicon-docker-plain colored",
-}
+const skills = [
+  { name: "HTML", icon: "devicon-html5-plain colored" },
+  { name: "CSS", icon: "devicon-css3-plain colored" },
+  { name: "JavaScript", icon: "devicon-javascript-plain colored" },
+  { name: "React", icon: "devicon-react-original colored" },
+  { name: "Python", icon: "devicon-python-plain colored" },
+  { name: "SQL", icon: "devicon-mysql-plain colored" },
+  { name: "MongoDB", icon: "devicon-mongodb-plain colored" },
+  { name: "MySQL", icon: "devicon-mysql-plain colored" },
+  { name: "Git", icon: "devicon-git-plain colored" },
+  { name: "GitHub", icon: "devicon-github-original" },
+  { name: "Docker", icon: "devicon-docker-plain colored" },
+];
 
 export default function Skills() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([])
-  const [visibleCards, setVisibleCards] = useState<boolean[]>([])
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = cardRefs.current.indexOf(entry.target as HTMLDivElement)
-            if (index !== -1) {
-              setVisibleCards((prev) => {
-                const updated = [...prev]
-                updated[index] = true
-                return updated
-              })
-            }
-          }
-        })
-      },
-      { threshold: 0.3 }
-    )
-
-    cardRefs.current.forEach((card) => card && observer.observe(card))
-    return () => observer.disconnect()
-  }, [])
-
-  const skillCategories = [
-    { title: "Web Development", skills: ["HTML", "CSS", "JavaScript", "React"] },
-    { title: "Programming", skills: ["Python", "SQL"] },
-    { title: "Databases", skills: ["MongoDB", "MySQL"] },
-    { title: "Tools", skills: ["Git", "GitHub", "Docker"] },
-  ]
-
   return (
-    <section id="skills" ref={sectionRef} className="py-24">
-      <div className="container mx-auto px-4 max-w-6xl">
-        <h2 className="text-4xl font-bold text-center mb-16">
+    <section id="skills" className="py-24 bg-background overflow-hidden">
+      <div className="container mx-auto px-4 mb-12">
+        <h2 className="text-4xl font-bold text-center mb-4">
           Skills & Technologies
         </h2>
+        <p className="text-center text-muted-foreground">
+          My technical stack and tools I use.
+        </p>
+      </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {skillCategories.map((category, index) => (
-            <Card
-              key={category.title}
-              ref={(el) => (cardRefs.current[index] = el)}
-              className={`p-6 transition-all duration-700 ease-out
-              hover:-translate-y-3 hover:shadow-xl
-              ${visibleCards[index] ? "opacity-100" : "opacity-0 translate-y-10"}`}
-            >
-              <h3 className="text-xl font-semibold mb-4">
-                {category.title}
-              </h3>
-
-              <div className="flex flex-wrap gap-4">
-                {category.skills.map((skill, i) => (
-                  <div
-                    key={skill}
-                    className="w-14 h-14 flex items-center justify-center rounded-xl bg-muted
-                    animate-icon transition-all duration-500
-                    hover:scale-125 hover:-translate-y-2"
-                    style={{ animationDelay: `${i * 0.2}s` }}
-                  >
-                    {skillIconMap[skill] ? (
-                      <i className={`${skillIconMap[skill]} text-3xl`} />
-                    ) : (
-                      <span className="text-xs">{skill}</span>
-                    )}
-                  </div>
-                ))}
+      {/* --- වෙනස්කම මෙතනයි ---
+         1. max-w-4xl: මේකෙන් අපි මුළු පළල සීමා කළා (ඔයාට කැමති නම් 5xl, 3xl දාන්න පුළුවන්).
+         2. mx-auto: පෙට්ටිය Screen එකේ මැදට ගත්තා.
+         3. [mask-image:...]: මේකෙන් තමයි "මැද හරියෙන් පටන් අරන් මැද හරියෙන් ඉවර වෙන" Effect එක දෙන්නේ. 
+            - transparent: දෙපැත්ත නොපෙනී යන්න.
+            - white_20%: 20%ක් ඇතුලට ආවම පෙනෙන්න ගන්න.
+      */}
+      <div className="max-w-5xl mx-auto px-4 relative">
+        <div className="[mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]">
+          
+          <Marquee pauseOnHover={true} speed={40} gradient={false} className="py-4">
+            {skills.map((skill, index) => (
+              <div
+                key={index}
+                className="w-24 h-24 flex flex-col items-center justify-center rounded-2xl bg-muted/50 border border-border/50 backdrop-blur-sm mx-6 hover:scale-110 transition-all duration-300"
+              >
+                <i className={`${skill.icon} text-5xl mb-2 drop-shadow-md`} />
+                <span className="text-xs font-medium text-muted-foreground">{skill.name}</span>
               </div>
-            </Card>
-          ))}
+            ))}
+          </Marquee>
+
         </div>
       </div>
     </section>
-  )
+  );
 }
