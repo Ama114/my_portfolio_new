@@ -34,7 +34,7 @@ export default function Hero() {
 
             {/* Job Title with Gradient Color */}
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-black to-gray-600 dark:from-white dark:via-gray-400 dark:to-gray-600">
-              Data Science Student & Web Developer
+              Data Science  | AI/ML Engineer | Data Analyst
             </h2>
 
             {/* Description */}
