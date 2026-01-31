@@ -1,55 +1,50 @@
 "use client"
 
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react"
+import { ArrowDown, Github, Linkedin, Mail, Code } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import ParticleBackground from "@/components/ParticleBackground"
+import Image from "next/image"
 
 export default function Hero() {
   const name = "Vishwa Darshana"
 
   return (
-    // වෙනස්කම 1: පසුබිම් පාට (Background Color)
-    // bg-white = Light mode එකේදී සුදු පාට
-    // dark:bg-black = Dark mode එකේදී කළු පාට
-    // selection:bg-primary/20 = අකුරු select කරද්දී එන පාට
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-black transition-colors duration-300 selection:bg-primary/20">
       
+      {/* Background Animation (Particles) */}
       <ParticleBackground />
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
+        
+        {/* Layout: 1 Column on Mobile, 2 Columns on Desktop */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+          
+          {/* --- LEFT SIDE: TEXT AND BUTTONS --- */}
+          <div className="order-2 lg:order-1 text-center lg:text-left space-y-6 animate-fade-in-up">
             
-            {/* වෙනස්කම 2: කුඩා හැඳින්වීම */}
-            {/* text-gray-600 = Light mode එකේදී තද අළු පාට */}
-            {/* dark:text-muted-foreground = Dark mode එකේදී ලා අළු පාට */}
+            {/* Greeting */}
             <p className="text-gray-600 dark:text-muted-foreground font-mono text-lg md:text-xl tracking-wide">
               Hi, my name is
             </p>
 
-            {/* වෙනස්කම 3: ප්‍රධාන නම */}
-            {/* text-black = Light mode එකේදී කළු පාට */}
-            {/* dark:text-white = Dark mode එකේදී සුදු පාට */}
-            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-black dark:text-white mb-6 drop-shadow-xl dark:drop-shadow-2xl">
+            {/* Name */}
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-black dark:text-white mb-6 drop-shadow-xl dark:drop-shadow-2xl">
               {name}
             </h1>
 
-            {/* වෙනස්කම 4: Job Title (Gradient Text) */}
-            {/* Light Mode: කළු සිට අළු දක්වා (from-black to-gray-600) */}
-            {/* Dark Mode: සුදු සිට අළු දක්වා (dark:from-white dark:to-gray-600) */}
+            {/* Job Title with Gradient Color */}
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-black to-gray-600 dark:from-white dark:via-gray-400 dark:to-gray-600">
               Data Science Student & Web Developer
             </h2>
 
-            {/* වෙනස්කම 5: විස්තරය */}
-            {/* text-gray-700 = Light mode */}
-            {/* dark:text-gray-400 = Dark mode */}
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-700 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            {/* Description */}
+            <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
               Final-year Data Science undergraduate at SLTC Research University. 
               Turning raw data into actionable insights and building modern web solutions.
             </p>
 
-            {/* Buttons (මේවා shadcn/ui නිසා ඉබේම පාට මාරු වෙනවා ඇති, නැත්නම් කියන්න) */}
-            <div className="flex flex-wrap items-center justify-center gap-5 pt-4">
+            {/* Action Buttons */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-5 pt-4">
               <Button size="lg" className="rounded-full" asChild>
                 <a href="#projects">View My Work <ArrowDown className="ml-2 h-4 w-4"/></a>
               </Button>
@@ -58,20 +53,52 @@ export default function Hero() {
               </Button>
             </div>
 
-            {/* වෙනස්කම 6: Social Icons */}
-            <div className="flex items-center justify-center gap-8 pt-8">
-              {/* Light mode එකේදී කළු පාටට hover වෙනවා, Dark mode එකේදී සුදු පාටට */}
+            {/* Social Media Icons */}
+            <div className="flex items-center justify-center lg:justify-start gap-8 pt-4">
               <a href="https://github.com/Ama114" target="_blank" className="text-gray-600 dark:text-gray-500 hover:text-black dark:hover:text-white transition-all transform hover:scale-110"><Github className="h-7 w-7" /></a>
               <a href="https://www.linkedin.com/in/vishwa-darshana-5186a4319" target="_blank" className="text-gray-600 dark:text-gray-500 hover:text-black dark:hover:text-white transition-all transform hover:scale-110"><Linkedin className="h-7 w-7" /></a>
               <a href="mailto:amathun340@gmail.com" className="text-gray-600 dark:text-gray-500 hover:text-black dark:hover:text-white transition-all transform hover:scale-110"><Mail className="h-7 w-7" /></a>
             </div>
+          </div>
+
+
+          {/* --- RIGHT SIDE: PROFILE IMAGE WITH ANIMATION --- */}
+          <div className="order-1 lg:order-2 flex justify-center lg:justify-end animate-fade-in-up delay-200">
             
+            {/* Animation Container */}
+            <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[550px] lg:h-[550px] flex items-center justify-center">
+              
+              {/* 1. The Static Outer Circle (The Track) */}
+              {/* Visible in light mode, transparent white in dark mode */}
+              <div className="absolute inset-0 rounded-full border border-gray-300 dark:border-white/30" />
+
+              {/* 2. The Rotating Part (Animation) */}
+              <div className="absolute inset-0 animate-[spin_10s_linear_infinite]">
+                {/* The Floating Capsule with Icon */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-12 bg-white dark:bg-zinc-800 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.3)] border border-gray-200 dark:border-white/20">
+                  <Code className="w-7 h-7 text-black dark:text-white" />
+                </div>
+              </div>
+
+              {/* 3. The Main Profile Picture */}
+              <div className="relative w-60 h-60 sm:w-64 sm:h-64 lg:w-[400px] lg:h-[400px] rounded-full overflow-hidden border-4 border-white dark:border-zinc-900 shadow-2xl">
+                 <Image 
+                  src="/vishwa.jpg"
+                  alt="Profile"
+                  fill
+                  className="object-cover hover:scale-110 transition-transform duration-500"
+                  priority
+                />
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
-        {/* Light mode එකේදී කළු, Dark mode එකේදී සුදු */}
+      {/* Bouncing Arrow at the bottom */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50 hidden lg:block">
         <ArrowDown className="h-6 w-6 text-black dark:text-white" />
       </div>
 
