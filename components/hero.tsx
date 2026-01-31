@@ -4,6 +4,8 @@ import { ArrowDown, Github, Linkedin, Mail, Code } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import ParticleBackground from "@/components/ParticleBackground"
 import Image from "next/image"
+// 1. අලුත් Library එක Import කරගන්න
+import { TypeAnimation } from 'react-type-animation';
 
 export default function Hero() {
   const name = "Vishwa Darshana"
@@ -22,10 +24,20 @@ export default function Hero() {
           {/* --- LEFT SIDE: TEXT AND BUTTONS --- */}
           <div className="order-2 lg:order-1 text-center lg:text-left space-y-6 animate-fade-in-up">
             
-            {/* Greeting */}
-            <p className="text-gray-600 dark:text-muted-foreground font-mono text-lg md:text-xl tracking-wide">
-              Hi, my name is
-            </p>
+            {/* Greeting with Typewriter Effect */}
+            <div className="text-gray-600 dark:text-muted-foreground font-mono text-lg md:text-xl tracking-wide min-h-[30px]">
+              <TypeAnimation
+                sequence={[
+                  'Hi, my name is', // ටයිප් වෙන්න ඕන වචනය
+                  1000, // ටයිප් වුණාට පස්සේ තත්පරයක් ඉන්නවා
+                ]}
+                wrapper="span"
+                speed={50} // ටයිප් වෙන වේගය
+                style={{ display: 'inline-block' }}
+                repeat={0} // 0 = එක පාරයි ටයිප් වෙන්නේ (Loop වෙන්නේ නෑ)
+                cursor={true} // අගට එන ඉර (Cursor) එක පෙන්නන්න
+              />
+            </div>
 
             {/* Name */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-black dark:text-white mb-6 drop-shadow-xl dark:drop-shadow-2xl">
@@ -34,7 +46,7 @@ export default function Hero() {
 
             {/* Job Title with Gradient Color */}
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-black to-gray-600 dark:from-white dark:via-gray-400 dark:to-gray-600">
-              Data Science  | AI/ML Engineer | Data Analyst
+              Data Science Student & Web Developer
             </h2>
 
             {/* Description */}
@@ -69,7 +81,6 @@ export default function Hero() {
             <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[550px] lg:h-[550px] flex items-center justify-center">
               
               {/* 1. The Static Outer Circle (The Track) */}
-              {/* Visible in light mode, transparent white in dark mode */}
               <div className="absolute inset-0 rounded-full border border-gray-300 dark:border-white/30" />
 
               {/* 2. The Rotating Part (Animation) */}
