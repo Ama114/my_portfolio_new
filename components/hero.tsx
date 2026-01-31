@@ -4,7 +4,6 @@ import { ArrowDown, Github, Linkedin, Mail, Code } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import ParticleBackground from "@/components/ParticleBackground"
 import Image from "next/image"
-// 1. අලුත් Library එක Import කරගන්න
 import { TypeAnimation } from 'react-type-animation';
 
 export default function Hero() {
@@ -24,18 +23,23 @@ export default function Hero() {
           {/* --- LEFT SIDE: TEXT AND BUTTONS --- */}
           <div className="order-2 lg:order-1 text-center lg:text-left space-y-6 animate-fade-in-up">
             
-            {/* Greeting with Typewriter Effect */}
+            {/* Greeting with Infinite Typewriter Effect */}
             <div className="text-gray-600 dark:text-muted-foreground font-mono text-lg md:text-xl tracking-wide min-h-[30px]">
               <TypeAnimation
                 sequence={[
                   'Hi, my name is', // ටයිප් වෙන්න ඕන වචනය
-                  1000, // ටයිප් වුණාට පස්සේ තත්පරයක් ඉන්නවා
+                  1000,             // තත්පරයක් ඉන්නවා
+                  '',               // වචනය මැකෙනවා (හිස් වෙනවා)
+                  500,              // තව පොඩ්ඩක් ඉඳලා ආයේ මුල ඉඳන් පටන් ගන්නවා
+                  'Hi, my name is', 
+                  1000,
                 ]}
                 wrapper="span"
-                speed={50} // ටයිප් වෙන වේගය
+                speed={50}
                 style={{ display: 'inline-block' }}
-                repeat={0} // 0 = එක පාරයි ටයිප් වෙන්නේ (Loop වෙන්නේ නෑ)
-                cursor={true} // අගට එන ඉර (Cursor) එක පෙන්නන්න
+                // වෙනස්කම මෙතනයි: Infinity දැම්මාම දිගටම Loop වෙනවා
+                repeat={Infinity} 
+                cursor={true}
               />
             </div>
 
