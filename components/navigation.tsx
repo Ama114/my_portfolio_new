@@ -4,6 +4,12 @@ import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { Space_Grotesk } from "next/font/google"
+
+const spaceGrotesk = Space_Grotesk({ 
+  subsets: ["latin"], 
+  weight: ["700"] 
+})
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -17,7 +23,6 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // Template: Navigation items - customize these 3 items as needed
   const navItems = [
     { name: "About", href: "#about" },
     { name: "Projects", href: "#projects" },
@@ -26,17 +31,28 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 w-full bg-background/70 backdrop-blur-lg shadow-md z-50 transition-all duration-300 ${
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-background/60 backdrop-blur-md border-b border-border"
-          : "bg-background/20 backdrop-blur-md border-b border-transparent"
+          ? "bg-background/80 backdrop-blur-lg border-b border-border py-2"
+          : "bg-transparent py-4"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <a href="/" className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground hover:opacity-80 transition-opacity tracking-[0.3em] uppercase font-inter">
-            AVD
-          </a>
+          
+          {/* --- Updated AVD Logo with Animation --- */}
+          {/* --- Updated AVD Logo --- */}
+      {/* --- Auto-Playing "Liquid Flow" Logo --- */}
+      {/* --- Logo with New Font & Auto Animation --- */}
+        <a 
+          href="/" 
+          className={`text-2xl md:text-3xl lg:text-4xl uppercase tracking-widest 
+                    animate-liquid ${spaceGrotesk.className}`} 
+          style={{ fontWeight: 700 }} // Extra bold look
+        >
+          AVD
+        </a>
+          {/* ---------------------------------------- */}
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
@@ -44,23 +60,27 @@ export default function Navigation() {
               <a
                 key={item.name}
                 href={item.href}
-                className="relative group px-3 py-2 rounded-md text-lg md:text-xl font-medium text-muted-foreground transition-colors hover:text-foreground overflow-hidden before:content-[''] before:absolute before:inset-0 before:rounded-md before:bg-foreground/10 before:scale-x-0 before:origin-left before:transition-transform before:duration-300 group-hover:before:scale-x-100"
+                className="relative group px-2 py-1 text-lg font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
                 {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-foreground transition-all duration-300 group-hover:w-full" />
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-foreground transition-all duration-300 group-hover:w-full" />
               </a>
             ))}
-            <Button size="sm" className="ml-4" asChild>
+            <Button size="sm" className="ml-4 rounded-full px-6" asChild>
               <a href="/resume">Resume</a>
             </Button>
             <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-2">
+          <div className="md:hidden flex items-center gap-4">
             <ThemeToggle />
-            <button className="text-foreground" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            <button 
+              className="text-foreground p-2" 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle Menu"
+            >
+              {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
         </div>
@@ -68,24 +88,21 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-card border-t border-border animate-fade-in-up">
-          <div className="container mx-auto px-4 py-4 flex flex-col gap-4">
+        <div className="md:hidden bg-background/95 backdrop-blur-xl border-t border-border h-screen">
+          <div className="container mx-auto px-6 py-10 flex flex-col gap-8">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className="relative group py-2 px-3 rounded-md text-xl font-medium text-muted-foreground transition-colors hover:text-foreground overflow-hidden before:content-[''] before:absolute before:inset-0 before:rounded-md before:bg-foreground/10 before:scale-x-0 before:origin-left before:transition-transform before:duration-300 group-hover:before:scale-x-100"
+                className="text-3xl font-bold tracking-widest text-foreground border-b border-border/50 pb-4"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.name}
               </a>
             ))}
-            <Button size="sm" className="w-full" asChild>
-              <a href="/resume" onClick={() => setIsMobileMenuOpen(false)}>Resume</a>
+            <Button size="lg" className="w-full text-xl py-6 rounded-xl" asChild>
+              <a href="/resume" onClick={() => setIsMobileMenuOpen(false)}>View Resume</a>
             </Button>
-            <div className="flex justify-center pt-2">
-              <ThemeToggle />
-            </div>
           </div>
         </div>
       )}

@@ -429,3 +429,69 @@
 .animate-icon {
   animation: floatIcon 3.5s ease-in-out infinite;
 }
+
+
+@layer utilities {
+  /* මේ ටික අනිවාර්යයෙන්ම ඕනේ */
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(
+      90deg, 
+      currentColor 0%, 
+      rgba(255, 255, 255, 0.5) 50%, 
+      currentColor 100%
+    );
+    background-size: 200% auto;
+    background-clip: text; /* standard property */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+  }
+}
+
+
+@layer utilities {
+  /* 1. Animation එක නිර්මාණය කිරීම */
+  @keyframes liquid-flow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* 2. Class එක හැදීම */
+  .animate-liquid {
+    /* Gradient එක: තද පාට සහ ලා පාට අතර මාරු වෙන්න */
+    background: linear-gradient(
+      270deg, 
+      var(--foreground) 0%, 
+      var(--muted-foreground) 50%, 
+      var(--foreground) 100%
+    );
+    background-size: 200% 200%;
+    
+    /* Text එක ඇතුලට දානවා */
+    background-clip: text;
+    -webkit-background-clip: text;
+    
+    /* පාට අයින් කරනවා (gradient එක පේන්න) */
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    
+    /* දිගටම වැඩ කරන්න (Infinite) */
+    animation: liquid-flow 3s ease infinite;
+  }
+}
