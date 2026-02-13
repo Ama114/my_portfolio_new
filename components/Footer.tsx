@@ -37,7 +37,7 @@ export default function Footer() {
           </div>
 
           {/* 2. Quick Links (Navigation) */}
-          <div className="flex flex-wrap justify-center gap-6 text-sm font-medium text-muted-foreground">
+          <div className="flex flex-col justify-center gap-4 text-base font-medium text-muted-foreground">
             {quickLinks.map((link) => (
               <a 
                 key={link.name} 
@@ -60,7 +60,7 @@ export default function Footer() {
                 className="p-2 rounded-full bg-foreground/5 hover:bg-foreground/10 text-foreground/80 hover:text-foreground transition-all duration-300 hover:scale-110"
                 aria-label={social.name}
               >
-                <social.icon className="w-5 h-5" />
+                <social.icon className="w-15 h-5" />
               </a>
             ))}
           </div>
@@ -69,11 +69,9 @@ export default function Footer() {
         {/* --- Bottom Separator --- */}
         <div className="mt-12 pt-8 border-t border-border/40 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
           
-          <p>© {new Date().getFullYear()} Vishwa Darshana. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Vishwa Darshana.</p>
           
-          <p className="flex items-center gap-1">
-            Made with <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" /> using Next.js
-          </p>
+          
 
         </div>
       </div>
