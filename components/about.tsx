@@ -52,7 +52,7 @@ export default function About() {
         
         {/* Header - Large Size */}
         <div className={`mb-16 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-          <h2 className={`${spaceGrotesk.className} text-5xl md:text-7xl font-bold text-foreground mb-6`}>
+          <h2 className={`${spaceGrotesk.className} text-4xl md:text-6xl font-bold text-foreground mb-6`}>
             About Me.
           </h2>
           <div className="h-2 w-24 bg-foreground/80 rounded-full" />

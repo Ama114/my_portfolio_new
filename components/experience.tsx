@@ -1,6 +1,8 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
+// 1. import Image
+import Image from "next/image"
 import { GraduationCap, Calendar, Users } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -35,6 +37,8 @@ export default function Experience() {
         "Pursuing comprehensive education in data science with focus on machine learning, deep learning, and artificial intelligence. Developing strong foundation in Python programming, statistics, and data visualization.",
       technologies: ["Python", "Machine Learning", "Deep Learning", "Data Analysis", "Statistics", "AI"],
       icon: GraduationCap,
+      // sltc logo
+      logo: "/sltc.png", 
     },
     {
       title: "Volunteer",
@@ -44,6 +48,8 @@ export default function Experience() {
         "Active volunteer contributing to community service initiatives and leadership development programs. Collaborating with team members on various social impact projects.",
       technologies: ["Leadership", "Teamwork", "Community Service", "Event Planning"],
       icon: Users,
+       // leo club logo
+       logo: "/leo.png", 
     },
   ]
 
@@ -81,9 +87,24 @@ export default function Experience() {
 
                   <Card className="p-6 hover:shadow-lg hover:shadow-accent/10 transition-all duration-300 bg-card border-border ml-8 sm:ml-12 md:ml-0 group">
                     <div className="flex items-start gap-4 mb-4">
-                      <div className="p-3 bg-foreground/10 rounded-lg">
-                        <exp.icon className="h-8 w-8 text-foreground" />
+                      
+                      
+                      <div className="p-3 bg-foreground/10 rounded-lg h-16 w-16 flex items-center justify-center overflow-hidden">
+                        
+                        
+                        {exp.logo ? (
+                          <Image 
+                            src={exp.logo} 
+                            alt={exp.company} 
+                            width={45} 
+                            height={45} 
+                            className="object-contain" 
+                          />
+                        ) : (
+                          <exp.icon className="h-8 w-8 text-foreground" />
+                        )}
                       </div>
+
                       <div className="flex-1">
                         <h3 className="text-2xl md:text-3xl font-bold text-card-foreground mb-2 group-hover:text-foreground transition-all duration-300">{exp.title}</h3>
                         <p className="text-foreground font-semibold mb-2 text-lg md:text-xl">{exp.company}</p>
