@@ -76,8 +76,8 @@ export default function Contact() {
     {
       icon: Mail,
       title: "Email",
-      value: "amathun340@gmail.com",
-      href: "mailto:amathun340@gmail.com",
+      value: "avdarshana2001@gmail.com",
+      href: "mailto:avdarshana2001@gmail.com",
     },
     {
       icon: Phone,
@@ -109,11 +109,11 @@ export default function Contact() {
   ]
 
   return (
-    // Section Background: Light Mode = gray-50 (ලා අළු), Dark Mode = zinc-950 (කළු)
+    // Section Background: Light Mode = gray-50 , Dark Mode = zinc-950
     <section id="contact" ref={sectionRef} className="py-20 md:py-32 relative overflow-hidden bg-gray-50 dark:bg-zinc-950 transition-colors duration-300">
       
       {/* --- Ambient Background Glows --- */}
-      {/* Light Mode එකේදී මේවා ටිකක් පාට අඩුවෙන් පෙනෙයි, Dark Mode එකේදී දීප්තිමත්ව පෙනෙයි */}
+      
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-purple-500/20 dark:bg-purple-500/20 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-500/20 dark:bg-blue-500/20 rounded-full blur-[100px] translate-x-1/2 translate-y-1/2 pointer-events-none" />
 
@@ -145,7 +145,7 @@ export default function Contact() {
               {contactInfo.map((info, index) => (
                 <Card
                   key={info.title}
-                  // Glass Styles භාවිතා කර ඇත
+                  // use Glass Styles
                   className={`p-6 hover:bg-white/60 dark:hover:bg-white/10 transition-all duration-300 ${glassCardClass}`}
                   style={{
                     animationDelay: `${index * 100}ms`,
