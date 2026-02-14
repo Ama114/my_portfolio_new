@@ -21,8 +21,8 @@ export default function Projects() {
       title: "National Cricket Player Analysis System",
       description: "Final year project analyzing cricket player performance using ML models & statistical analysis.",
       image: "images/cricket_player_analyzing.png",
-      technologies: ["React", "Flask", "RandomForest"],
-      github: "https://github.com/Ama114",
+      technologies: ["React", "Flask", "RandomForest", "MYSQL"],
+      github: "https://github.com/Ama114https://github.com/Ama114/srilanka_National_Player_analyzing_System",
       status: "In Progress",
     },
     {
@@ -38,7 +38,7 @@ export default function Projects() {
       description: "AI application analyzing meal images to provide diet recommendations using Computer Vision.",
       image: "images/personalize_diet_plan.png",
       technologies: ["Deep Learning", "Computer Vision", "React"],
-      github: "https://github.com/Ama114",
+      github: "https://github.com/sahan-23/10_CoreCrew_CCS4310-Personalized-Diet-Exercise-Planner-from-Meal-Images",
       status: "In Progress",
     },
     {
@@ -46,18 +46,38 @@ export default function Projects() {
       description: "NLP project analyzing sentiment in text data using various ML algorithms.",
       image: "images/Sentiment_analysis.png",
       technologies: ["Python", "NLP", "Pandas"],
-      github: "https://github.com/Ama114",
+      github: "https://github.com/Ama114/sentiment_analysis-project",
       status: "Completed",
     },
     {
       title: "Smart Pet Feeder",
       description: "IoT-based automated pet feeding system with scheduling and monitoring capabilities.",
-      image: "/smart-pet-feeder.png",
+      image: "images/pet_feeder.png",
       technologies: ["IoT", "React", "MongoDB"],
       github: "https://github.com/Ama114",
       status: "Completed",
     },
-    // තව Projects ඕන තරම් මෙතනට එකතු කරන්න...
+
+
+    {
+      title: "TO_DO_web_app",
+      description: "A simple and beautiful To-Do List web application built with pure HTML, CSS, and JavaScript. Add tasks, mark them as completed, delete them, and your list is saved automatically in the browser even after refresh!.",
+      image: "images/To_Do_List.png",
+      technologies: ["HTML5 ", "CSS3  ", "Vanilla JavaScript "],
+      github: "https://github.com/Ama114/To-Do-List",
+      status: "Completed",
+    },
+
+  {
+      title: "AI Chat Assistant",
+      description: "A real-time AI chatbot built with LangChain and Groq API.",
+      image: "images/AI_chatbot.png",
+      technologies: ["Streamlit", "LangChain", "Groq API", "LLaMA 3.1", "Python 3.8+"],
+      github: "https://github.com/Ama114/-LangChain-Groq-Streamlit-Demo-LLaMA-3.1-",
+      status: "Completed",
+    },
+
+    
   ]
 
   return (
